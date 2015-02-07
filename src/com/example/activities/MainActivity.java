@@ -24,12 +24,10 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
         setContentView(R.layout.activity_main);
         mDetector = new GestureDetectorCompat(this,this);
         mDetector.setOnDoubleTapListener(this);
-    	Toast.makeText(this, "Applicatie gestart", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	//Toast.makeText(this, "onTouchEvent", Toast.LENGTH_SHORT).show();
     	mDetector.onTouchEvent(event);
     	return super.onTouchEvent(event);
     }
@@ -60,7 +58,6 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     public void showGps(View view) {
         Intent about = new Intent(this, GpsActivity.class);
 		view.getContext().startActivity(about);
-    	Toast.makeText(this, "showAbout gestart", Toast.LENGTH_LONG).show();
     }
 
     public void doExit(View view) {
@@ -79,7 +76,6 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 
 	@Override
 	public boolean onDoubleTapEvent(MotionEvent arg0) {
-    	Toast.makeText(this, "onDoubleTapEvent", Toast.LENGTH_LONG).show();
 		return false;
 	}
 
@@ -101,7 +97,6 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 
 	@Override
 	public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2, float arg3) {
-    	Toast.makeText(this, "onScroll", Toast.LENGTH_LONG).show();
 		return false;
 	}
 
