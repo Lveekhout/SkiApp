@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AndroidTestApp</string>
+    <string name="app_name">SkiApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Welkom bij deze vernieuwde app.\nNieuwe regel.</string>
     <string name="DialogStr">Hallo hoe gaat het?</string>

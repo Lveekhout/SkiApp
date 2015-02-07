@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/main_activity_background"
+    android:background="@drawable/backdrop"
     tools:context=".MainActivity" >
 
     <TextView
@@ -33,22 +33,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
         android:text="@string/button_about"
-        android:onClick="showAbout" />
+        android:onClick="showGps" />
     
     <Button
         android:id="@+id/button3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
-        android:text="Toast"
-        android:onClick="showToast" />
+        android:text="NewActivity"
+        android:onClick="showNewActivity" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button3"
-        android:text="NewActivity"
-        android:onClick="showNewActivity" />
+        android:text="Exit"
+        android:onClick="doExit" />
 
 </RelativeLayout>

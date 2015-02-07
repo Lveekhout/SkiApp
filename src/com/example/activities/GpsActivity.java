@@ -16,9 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.data.GlobalAppData;
-import com.example.helloapp.R;
+import com.example.activities.R;
+import com.example.application.MyApplication;
 
-public class AboutActivity extends FragmentActivity {
+public class GpsActivity extends FragmentActivity {
 
     TextView textLat;
     TextView textLong;
@@ -31,12 +32,15 @@ public class AboutActivity extends FragmentActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_gps);
         
         textLat = (TextView) findViewById(R.id.textLat);
         textLong = (TextView) findViewById(R.id.textLong);
         textSpeed = (TextView) findViewById(R.id.textSpeed);
         textMaxSpeed = (TextView) findViewById(R.id.textMaxSpeed);
+        displayData();
+        
+        MyApplication application = (MyApplication)getApplication();
         
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ll = new MyLocationListener();        
@@ -54,10 +58,26 @@ public class AboutActivity extends FragmentActivity {
 		lm.removeUpdates(ll);
     	super.onDestroy();
     }
+    
+    private void displayData() {
+    	textLat.setText(GlobalAppData.latitude);
+    	textLong.setText(GlobalAppData.longitude);
+    	textSpeed.setText(GlobalAppData.speed);
+
+        if (GlobalAppData.maxSpeedDate==null) textMaxSpeed.setText(String.format("%.2f km/u", GlobalAppData.maxSpeed));
+		else {
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+			textMaxSpeed.setText(String.format("%.2f km/u om %s uur", GlobalAppData.maxSpeed, dateFormat.format(GlobalAppData.maxSpeedDate)));
+		}
+    }
 	
     public void resetMaxSpeed(View view) {
+    	GlobalAppData.latitude = "----";
+    	GlobalAppData.longitude = "----";
+    	GlobalAppData.speed = "----";
         GlobalAppData.maxSpeed = 0.0f;
         GlobalAppData.maxSpeedDate = null;
+        displayData();
     }
 
     class MyLocationListener implements LocationListener {
@@ -67,21 +87,17 @@ public class AboutActivity extends FragmentActivity {
             if (location != null) {
                 //textLat.setText(StrMods.convert(location.getLatitude()));
                 //textLong.setText(StrMods.convert(location.getLongitude()));
-                textLat.setText(Double.toString(location.getLatitude()));
-                textLong.setText(Double.toString(location.getLongitude()));
-                
+            	
                 float f = location.getSpeed()*3.6f;
-                textSpeed.setText(String.format("%.2f", f) + " km/u");
+            	GlobalAppData.latitude = Double.toString(location.getLatitude());
+            	GlobalAppData.longitude = Double.toString(location.getLongitude());
+            	GlobalAppData.speed = String.format("%.2f", f) + " km/u";
+            	
                 if (f>GlobalAppData.maxSpeed) {
                 	GlobalAppData.maxSpeed = f;
                 	GlobalAppData.maxSpeedDate = new Date();
                 }
-                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-                if (GlobalAppData.maxSpeedDate==null) {
-					textMaxSpeed.setText(String.format("%.2f km/u", GlobalAppData.maxSpeed));
-				} else {
-					textMaxSpeed.setText(String.format("%.2f km/u om %s uur", GlobalAppData.maxSpeed, dateFormat.format(GlobalAppData.maxSpeedDate)));
-				}
+                displayData();
             }
         }
 

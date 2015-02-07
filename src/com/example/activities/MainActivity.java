@@ -1,7 +1,6 @@
 package com.example.activities;
 
-import com.example.data.GlobalAppData;
-import com.example.helloapp.R;
+import com.example.activities.R;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,14 +15,15 @@ import android.support.v4.view.GestureDetectorCompat;
 
 public class MainActivity extends FragmentActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
-    TextView tv;
+    TextView welkomText;
 	private GestureDetectorCompat mDetector;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-		tv = (TextView) findViewById(R.id.textViewMain);
+//        setContentView(R.layout.activity_main);
+        setContentView(R.layout.test_layout);
+		welkomText = (TextView) findViewById(R.id.textViewMain);
         mDetector = new GestureDetectorCompat(this,this);
         mDetector.setOnDoubleTapListener(this);
     	Toast.makeText(this, "Applicatie gestart", Toast.LENGTH_LONG).show();
@@ -54,19 +54,19 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     	dlg.show(getSupportFragmentManager(), "tag");
     }
 
-    public void showAbout(View view) {
-        Toast.makeText(this, view.toString(), Toast.LENGTH_SHORT).show();
-        Intent about = new Intent(view.getContext(), AboutActivity.class);
+    public void showGps(View view) {
+        Intent about = new Intent(this, GpsActivity.class);
 		view.getContext().startActivity(about);
+    	Toast.makeText(this, "showAbout gestart", Toast.LENGTH_LONG).show();
     }
 
-    public void showToast(View view) {
-        Toast.makeText(this, "Dit is een test", Toast.LENGTH_SHORT).show();
-    }
-    
     public void showNewActivity(View view) {
-        Intent newActivity = new Intent(view.getContext(), NewActivity.class);
+        Intent newActivity = new Intent(this, NewActivity.class);
     	view.getContext().startActivity(newActivity);
+    }
+
+    public void doExit(View view) {
+        finish();
     }
 
 	@Override
@@ -77,8 +77,8 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 	@Override
 	public boolean onDoubleTap(MotionEvent arg0) {
     	Toast.makeText(this, "onDoubleTap", Toast.LENGTH_LONG).show();
-    	if (tv!=null) {
-    	   	tv.setText(tv.getText() + "\n" + arg0.toString());   		
+    	if (welkomText!=null) {
+    	   	welkomText.setText(welkomText.getText() + "\n" + arg0.toString());   		
     	} else {
         	Toast.makeText(this, "tv leeg", Toast.LENGTH_LONG).show();
     	}

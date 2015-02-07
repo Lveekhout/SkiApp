@@ -10,7 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.helloapp.R;
+import com.example.activities.R;
 
 public class NewActivity extends Activity {
 

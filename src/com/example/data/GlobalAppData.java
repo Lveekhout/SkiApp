@@ -8,6 +8,9 @@ import java.util.Date;
  */
 
 public class GlobalAppData {
+	public static String latitude = "----";
+	public static String longitude = "----";
+	public static String speed = "----";
     public static float maxSpeed = 0.0f;
     public static Date maxSpeedDate = null;
 }

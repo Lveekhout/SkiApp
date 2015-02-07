@@ -1,7 +1,6 @@
 package com.example.activities;
 
-import com.example.helloapp.R;
-
+import com.example.activities.R;
 import android.os.Bundle;
 import android.app.Dialog;
 import android.app.AlertDialog;
