@@ -12,14 +12,14 @@ import java.util.List;
 
 import com.example.activities.R;
 
-public class NewActivity extends Activity {
+public class ListActivity extends Activity {
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    try {
-			setContentView(R.layout.activity_newactivity);
+			setContentView(R.layout.activity_list);
 			
 			ListView listView = (ListView)findViewById(R.id.listView1);
 			

@@ -1,8 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_about"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:onClick="onAboutMenuClick"
+        android:title="About SkiApp"/>
+
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:onClick="onListMenuClick"
+        android:title="List"/>
 </menu>

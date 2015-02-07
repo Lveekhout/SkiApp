@@ -5,25 +5,22 @@ import com.example.activities.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GestureDetectorCompat;
 
 public class MainActivity extends FragmentActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
-    TextView welkomText;
 	private GestureDetectorCompat mDetector;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        setContentView(R.layout.test_layout);
-		welkomText = (TextView) findViewById(R.id.textViewMain);
+        setContentView(R.layout.activity_main);
         mDetector = new GestureDetectorCompat(this,this);
         mDetector.setOnDoubleTapListener(this);
     	Toast.makeText(this, "Applicatie gestart", Toast.LENGTH_LONG).show();
@@ -49,9 +46,14 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
         return true;
     }
 
-    public void showDialog(View view) {
+    public void onAboutMenuClick(MenuItem item) {
     	TestDialog dlg = new TestDialog();
     	dlg.show(getSupportFragmentManager(), "tag");
+    }
+
+    public void onListMenuClick(MenuItem item) {
+        Intent listActivity = new Intent(this, ListActivity.class);
+    	startActivity(listActivity);
     }
 
     public void showGps(View view) {
@@ -60,28 +62,17 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     	Toast.makeText(this, "showAbout gestart", Toast.LENGTH_LONG).show();
     }
 
-    public void showNewActivity(View view) {
-        Intent newActivity = new Intent(this, NewActivity.class);
-    	view.getContext().startActivity(newActivity);
-    }
-
     public void doExit(View view) {
         finish();
     }
 
-	@Override
+    @Override
 	public boolean onDown(MotionEvent e) {
 		return false;
 	}
 
 	@Override
 	public boolean onDoubleTap(MotionEvent arg0) {
-    	Toast.makeText(this, "onDoubleTap", Toast.LENGTH_LONG).show();
-    	if (welkomText!=null) {
-    	   	welkomText.setText(welkomText.getText() + "\n" + arg0.toString());   		
-    	} else {
-        	Toast.makeText(this, "tv leeg", Toast.LENGTH_LONG).show();
-    	}
  		return false;
 	}
 
