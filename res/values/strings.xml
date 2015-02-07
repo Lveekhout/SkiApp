@@ -4,9 +4,8 @@
     <string name="app_name">SkiApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Welkom bij deze vernieuwde app.\nNieuwe regel.</string>
-    <string name="DialogStr">Hallo hoe gaat het?</string>
-    <string name="fire">Ga door</string>
-    <string name="cancel">Annuleren</string>
+    <string name="DialogStr">SkiApp version 1.0.0\n\n Door LJ van Eekhout</string>
+    <string name="gezien">Gezien</string>
     <string name="button">Pop-up</string>
     <string name="tiktekst">Tik een tekst</string>
     <string name="button_about">GPS</string>
