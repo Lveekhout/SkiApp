@@ -1,6 +1,7 @@
 package com.example.activities;
 
 import com.example.activities.R;
+import com.example.dialogs.AboutDialog;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     }
 
     public void onAboutMenuClick(MenuItem item) {
-    	TestDialog dlg = new TestDialog();
+    	AboutDialog dlg = new AboutDialog();
     	dlg.show(getSupportFragmentManager(), "tag");
     }
 
