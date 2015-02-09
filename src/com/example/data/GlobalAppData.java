@@ -13,4 +13,5 @@ public class GlobalAppData {
 	public static String speed = "----";
     public static float maxSpeed = 0.0f;
     public static Date maxSpeedDate = null;
+    public static String maxSpeedCoord = "----";
 }

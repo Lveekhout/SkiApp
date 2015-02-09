@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.data.GlobalAppData;
+import com.example.dialogs.AboutDialog;
+import com.example.dialogs.ShowCoordDialog;
 import com.example.activities.R;
 import com.example.application.MyApplication;
 
@@ -77,7 +79,13 @@ public class GpsActivity extends FragmentActivity {
     	GlobalAppData.speed = "----";
         GlobalAppData.maxSpeed = 0.0f;
         GlobalAppData.maxSpeedDate = null;
+    	GlobalAppData.maxSpeedCoord = "----";
         displayData();
+    }
+
+    public void showCoordMaxSpeed(View view) {
+    	ShowCoordDialog dlg = new ShowCoordDialog();
+    	dlg.show(getSupportFragmentManager(), "tag");
     }
 
     class MyLocationListener implements LocationListener {
@@ -96,6 +104,7 @@ public class GpsActivity extends FragmentActivity {
                 if (f>GlobalAppData.maxSpeed) {
                 	GlobalAppData.maxSpeed = f;
                 	GlobalAppData.maxSpeedDate = new Date();
+                	GlobalAppData.maxSpeedCoord = Double.toString(location.getLatitude()) + "," + Double.toString(location.getLongitude());
                 }
                 displayData();
             }
