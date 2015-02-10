@@ -108,7 +108,7 @@
         android:layout_below="@+id/textMaxSpeed"
         android:layout_toRightOf="@+id/resetMaxSpeed"
         android:layout_marginTop="6dp"
-        android:enabled="true"
+        android:enabled="false"
         android:textColor="@color/Red"
         android:onClick="showCoordMaxSpeed"
         android:text="Coordinaten" />

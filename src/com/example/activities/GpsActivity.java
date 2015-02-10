@@ -4,8 +4,8 @@ package com.example.activities;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,10 +13,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.data.GlobalAppData;
-import com.example.dialogs.AboutDialog;
+import com.example.data.ListCoords;
 import com.example.dialogs.ShowCoordDialog;
 import com.example.activities.R;
 import com.example.application.MyApplication;
@@ -28,8 +26,8 @@ public class GpsActivity extends FragmentActivity {
     TextView textSpeed;
     TextView textMaxSpeed;
     
-    LocationManager lm;
-    LocationListener ll;
+    LocationManager locationManager;
+    LocationListener locationListener;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +40,14 @@ public class GpsActivity extends FragmentActivity {
         textMaxSpeed = (TextView) findViewById(R.id.textMaxSpeed);
         displayData();
         
-        MyApplication application = (MyApplication)getApplication();
+        @SuppressWarnings("unused")
+		MyApplication application = (MyApplication)getApplication();
         
-        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        ll = new MyLocationListener();        
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new MyLocationListener();        
 
         try {
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         }
         catch(Exception e) {
         	textLong.setText(e.getMessage());
@@ -57,11 +56,12 @@ public class GpsActivity extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
-		lm.removeUpdates(ll);
+		locationManager.removeUpdates(locationListener);
     	super.onDestroy();
     }
     
-    private void displayData() {
+    @SuppressLint("SimpleDateFormat")
+	private void displayData() {
     	textLat.setText(GlobalAppData.latitude);
     	textLong.setText(GlobalAppData.longitude);
     	textSpeed.setText(GlobalAppData.speed);
@@ -80,7 +80,11 @@ public class GpsActivity extends FragmentActivity {
         GlobalAppData.maxSpeed = 0.0f;
         GlobalAppData.maxSpeedDate = null;
     	GlobalAppData.maxSpeedCoord = "----";
+    	GlobalAppData.listCoordsList.clear();
         displayData();
+    	
+    	View button = findViewById(R.id.getMaxSpeed);
+    	button.setEnabled(false);
     }
 
     public void showCoordMaxSpeed(View view) {
@@ -100,11 +104,15 @@ public class GpsActivity extends FragmentActivity {
             	GlobalAppData.latitude = Double.toString(location.getLatitude());
             	GlobalAppData.longitude = Double.toString(location.getLongitude());
             	GlobalAppData.speed = String.format("%.2f", f) + " km/u";
+            	GlobalAppData.listCoordsList.add(new ListCoords(location.getLatitude(), location.getLongitude(), new Date()));
             	
                 if (f>GlobalAppData.maxSpeed) {
                 	GlobalAppData.maxSpeed = f;
                 	GlobalAppData.maxSpeedDate = new Date();
                 	GlobalAppData.maxSpeedCoord = Double.toString(location.getLatitude()) + "," + Double.toString(location.getLongitude());
+
+                	View button = findViewById(R.id.getMaxSpeed);
+                	button.setEnabled(true);
                 }
                 displayData();
             }
