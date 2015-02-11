@@ -16,5 +16,5 @@ public class GlobalAppData {
     public static float maxSpeed = 0.0f;
     public static Date maxSpeedDate = null;
     public static String maxSpeedCoord = "----";
-    public static List<ListCoords> listCoordsList = new ArrayList<>();
+    public static List<ListCoords> listCoordsList = new ArrayList<ListCoords>();
 }

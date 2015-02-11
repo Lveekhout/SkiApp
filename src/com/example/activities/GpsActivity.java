@@ -82,9 +82,6 @@ public class GpsActivity extends FragmentActivity {
     	GlobalAppData.maxSpeedCoord = "----";
     	GlobalAppData.listCoordsList.clear();
         displayData();
-    	
-    	View button = findViewById(R.id.getMaxSpeed);
-    	button.setEnabled(false);
     }
 
     public void showCoordMaxSpeed(View view) {
@@ -104,15 +101,17 @@ public class GpsActivity extends FragmentActivity {
             	GlobalAppData.latitude = Double.toString(location.getLatitude());
             	GlobalAppData.longitude = Double.toString(location.getLongitude());
             	GlobalAppData.speed = String.format("%.2f", f) + " km/u";
-            	GlobalAppData.listCoordsList.add(new ListCoords(location.getLatitude(), location.getLongitude(), new Date()));
-            	
-                if (f>GlobalAppData.maxSpeed) {
+
+            	if (location.getSpeed()>0) {
+					GlobalAppData.listCoordsList
+							.add(new ListCoords(location.getLatitude(),
+									location.getLongitude(), new Date()));
+				}
+
+            	if (f>GlobalAppData.maxSpeed) {
                 	GlobalAppData.maxSpeed = f;
                 	GlobalAppData.maxSpeedDate = new Date();
                 	GlobalAppData.maxSpeedCoord = Double.toString(location.getLatitude()) + "," + Double.toString(location.getLongitude());
-
-                	View button = findViewById(R.id.getMaxSpeed);
-                	button.setEnabled(true);
                 }
                 displayData();
             }

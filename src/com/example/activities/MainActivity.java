@@ -23,7 +23,7 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDetector = new GestureDetectorCompat(this,this);
-        mDetector.setOnDoubleTapListener(this);
+//        mDetector.setOnDoubleTapListener(this);
     }
 
     @Override
@@ -45,6 +45,15 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
         return true;
     }
 
+    public void showGps(View view) {
+        Intent about = new Intent(this, GpsActivity.class);
+		startActivity(about);
+    }
+
+    public void doExit(View view) {
+        finish();
+    }
+
     public void onAboutMenuClick(MenuItem item) {
     	AboutDialog dlg = new AboutDialog();
     	dlg.show(getSupportFragmentManager(), "tag");
@@ -55,13 +64,9 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     	startActivity(listActivity);
     }
 
-    public void showGps(View view) {
-        Intent about = new Intent(this, GpsActivity.class);
-		view.getContext().startActivity(about);
-    }
-
-    public void doExit(View view) {
-        finish();
+    public void onShowSkigebiedClick(MenuItem item) {
+        Intent about = new Intent(this, SkiGebied.class);
+		startActivity(about);
     }
 
     @Override
