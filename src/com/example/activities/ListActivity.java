@@ -1,8 +1,8 @@
 package com.example.activities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,7 +15,7 @@ import java.util.List;
 import com.example.activities.R;
 import com.example.data.GlobalAppData;
 
-public class ListActivity extends Activity {
+public class ListActivity extends FragmentActivity {
 
 	/** Called when the activity is first created. */
 	@Override

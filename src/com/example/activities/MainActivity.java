@@ -65,7 +65,7 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
     }
 
     public void onShowSkigebiedClick(MenuItem item) {
-        Intent about = new Intent(this, SkiGebied.class);
+        Intent about = new Intent(this, SkigebiedActivity.class);
 		startActivity(about);
     }
 

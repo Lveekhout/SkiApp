@@ -37,7 +37,7 @@
 			android:name="ListActivity">
         </activity>
         <activity
-			android:name="SkiGebied"
+			android:name="SkigebiedActivity"
 			android:launchMode="singleInstance">
         </activity>
     </application>
