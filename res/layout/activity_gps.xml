@@ -22,11 +22,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:textColor="@color/Ivory"
-        android:text="Lat"
+        android:text="Latitude"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_below="@+id/textLat"
         android:textColor="@color/Ivory"
         android:layout_marginTop="12dp"
-        android:text="Long"
+        android:text="Longitude"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -56,10 +56,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewAlt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textLong"
+        android:textColor="@color/Ivory"
+        android:layout_marginTop="12dp"
+        android:text="Altitude"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textAlt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAlt"
+        android:textColor="@color/Ivory"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textAlt"
         android:textColor="@color/Ivory"
         android:layout_marginTop="12dp"
         android:text="Speed"

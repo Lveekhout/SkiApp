@@ -12,9 +12,21 @@ import java.util.ArrayList;
 public class GlobalAppData {
 	public static String latitude = "----";
 	public static String longitude = "----";
+	public static String altitude = "----";
 	public static String speed = "----";
     public static float maxSpeed = 0.0f;
     public static Date maxSpeedDate = null;
     public static String maxSpeedCoord = "----";
     public static List<ListCoords> listCoordsList = new ArrayList<ListCoords>();
+
+    public static void reset() {
+    	latitude = "----";
+    	longitude = "----";
+    	altitude = "----";
+    	speed = "----";
+        maxSpeed = 0.0f;
+        maxSpeedDate = null;
+    	maxSpeedCoord = "----";
+    	listCoordsList.clear();
+    }
 }

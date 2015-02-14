@@ -23,6 +23,7 @@ public class GpsActivity extends FragmentActivity {
 
     TextView textLat;
     TextView textLong;
+    TextView textAlt;
     TextView textSpeed;
     TextView textMaxSpeed;
     
@@ -36,6 +37,7 @@ public class GpsActivity extends FragmentActivity {
         
         textLat = (TextView) findViewById(R.id.textLat);
         textLong = (TextView) findViewById(R.id.textLong);
+        textAlt = (TextView) findViewById(R.id.textAlt);
         textSpeed = (TextView) findViewById(R.id.textSpeed);
         textMaxSpeed = (TextView) findViewById(R.id.textMaxSpeed);
         displayData();
@@ -64,6 +66,7 @@ public class GpsActivity extends FragmentActivity {
 	private void displayData() {
     	textLat.setText(GlobalAppData.latitude);
     	textLong.setText(GlobalAppData.longitude);
+    	textAlt.setText(GlobalAppData.altitude);
     	textSpeed.setText(GlobalAppData.speed);
 
         if (GlobalAppData.maxSpeedDate==null) textMaxSpeed.setText(String.format("%.2f km/u", GlobalAppData.maxSpeed));
@@ -74,14 +77,8 @@ public class GpsActivity extends FragmentActivity {
     }
 	
     public void resetMaxSpeed(View view) {
-    	GlobalAppData.latitude = "----";
-    	GlobalAppData.longitude = "----";
-    	GlobalAppData.speed = "----";
-        GlobalAppData.maxSpeed = 0.0f;
-        GlobalAppData.maxSpeedDate = null;
-    	GlobalAppData.maxSpeedCoord = "----";
-    	GlobalAppData.listCoordsList.clear();
-        displayData();
+        GlobalAppData.reset();
+    	displayData();
     }
 
     public void showCoordMaxSpeed(View view) {
@@ -94,12 +91,13 @@ public class GpsActivity extends FragmentActivity {
         @Override
         public void onLocationChanged(Location location) {
             if (location != null) {
-                //textLat.setText(StrMods.convert(location.getLatitude()));
-                //textLong.setText(StrMods.convert(location.getLongitude()));
+//                textLat.setText(StrMods.convert(location.getLatitude()));
+//                textLong.setText(StrMods.convert(location.getLongitude()));
             	
                 float f = location.getSpeed()*3.6f;
             	GlobalAppData.latitude = Double.toString(location.getLatitude());
             	GlobalAppData.longitude = Double.toString(location.getLongitude());
+            	GlobalAppData.altitude = Double.toString(location.getAltitude());
             	GlobalAppData.speed = String.format("%.2f", f) + " km/u";
 
             	if (location.getSpeed()>0) {
