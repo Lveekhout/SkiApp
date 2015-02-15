@@ -1,9 +1,12 @@
 package nl.lveekhout.fragmentactivities;
 
+import nl.lveekhout.applications.SkiApplication;
 import nl.lveekhout.dialogs.AboutDialog;
 
 import nl.lveekhout.fragmentactivities.R;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,9 +24,14 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         mDetector = new GestureDetectorCompat(this,this);
-//        mDetector.setOnDoubleTapListener(this);
+
+        if (SkiApplication.getBitmap()==null) {
+            setContentView(R.layout.layout_splash);
+    	    new LoadBitmap().execute(R.drawable.ski_kaart_groot);
+        } else {
+            setContentView(R.layout.activity_main);
+        }
     }
 
     @Override
@@ -113,5 +121,28 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 	@Override
 	public boolean onSingleTapUp(MotionEvent e) {
 		return false;
+	}
+
+	private class LoadBitmap extends AsyncTask<Integer, Integer, Exception> {
+
+		@Override
+		protected Exception doInBackground(Integer... params) {
+		    try {
+				SkiApplication.setBitmap(BitmapFactory.decodeResource(getResources(), params[0]));
+				return null;
+			} catch (Exception e) {
+				return e;
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Exception result) {
+			if (result==null) {
+		        setContentView(R.layout.activity_main);
+			} else {
+				Toast.makeText(MainActivity.this, result.getClass().toString() + ": " + result.getMessage(), Toast.LENGTH_LONG).show();
+			}
+		}
+		
 	}
 }
