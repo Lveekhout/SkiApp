@@ -16,7 +16,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coordinaten"
+        android:text="Coördinaten"
         android:textColor="@color/Ivory"
         android:textSize="32dp" />
 
@@ -129,6 +129,6 @@
         android:layout_marginTop="6dp"
         android:textColor="@color/Red"
         android:onClick="showCoordMaxSpeed"
-        android:text="Coordinaten" />
+        android:text="Coördinaten" />
 
 </RelativeLayout>

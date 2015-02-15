@@ -17,7 +17,6 @@ import com.example.data.GlobalAppData;
 import com.example.data.ListCoords;
 import com.example.dialogs.ShowCoordDialog;
 import com.example.activities.R;
-import com.example.application.MyApplication;
 
 public class GpsActivity extends FragmentActivity {
 
@@ -41,9 +40,6 @@ public class GpsActivity extends FragmentActivity {
         textSpeed = (TextView) findViewById(R.id.textSpeed);
         textMaxSpeed = (TextView) findViewById(R.id.textMaxSpeed);
         displayData();
-        
-        @SuppressWarnings("unused")
-		MyApplication application = (MyApplication)getApplication();
         
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationListener = new MyLocationListener();        

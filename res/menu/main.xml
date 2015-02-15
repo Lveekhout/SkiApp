@@ -20,5 +20,5 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:onClick="onShowSkigebiedClick"
-        android:title="SkiGebied"/>
+        android:title="Skigebied"/>
 </menu>

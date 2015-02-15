@@ -14,7 +14,7 @@
 
     <application
         android:allowBackup="true"
-        android:name="com.example.application.MyApplication"
+        android:name="com.example.application.SkiApplication"
         android:icon="@drawable/ski_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">

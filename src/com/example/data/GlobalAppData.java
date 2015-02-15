@@ -10,14 +10,18 @@ import java.util.ArrayList;
  */
 
 public class GlobalAppData {
-	public static String latitude = "----";
-	public static String longitude = "----";
-	public static String altitude = "----";
-	public static String speed = "----";
-    public static float maxSpeed = 0.0f;
-    public static Date maxSpeedDate = null;
-    public static String maxSpeedCoord = "----";
+	public static String latitude;
+	public static String longitude;
+	public static String altitude;
+	public static String speed;
+    public static float maxSpeed;
+    public static Date maxSpeedDate;
+    public static String maxSpeedCoord;
     public static List<ListCoords> listCoordsList = new ArrayList<ListCoords>();
+    
+    static {
+    	reset();
+    }
 
     public static void reset() {
     	latitude = "----";
