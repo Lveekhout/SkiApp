@@ -1,8 +1,7 @@
-package com.example.dialogs;
+package nl.lveekhout.dialogs;
 
-import com.example.activities.R;
-import com.example.data.GlobalAppData;
-
+import nl.lveekhout.data.GlobalAppData;
+import nl.lveekhout.fragmentactivities.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ClipData;

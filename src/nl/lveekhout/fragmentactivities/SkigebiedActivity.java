@@ -1,5 +1,6 @@
-package com.example.activities;
+package nl.lveekhout.fragmentactivities;
 
+import nl.lveekhout.fragmentactivities.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;

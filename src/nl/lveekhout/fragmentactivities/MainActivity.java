@@ -1,8 +1,8 @@
-package com.example.activities;
+package nl.lveekhout.fragmentactivities;
 
-import com.example.activities.R;
-import com.example.dialogs.AboutDialog;
+import nl.lveekhout.dialogs.AboutDialog;
 
+import nl.lveekhout.fragmentactivities.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;

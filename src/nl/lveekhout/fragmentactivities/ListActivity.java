@@ -1,4 +1,4 @@
-package com.example.activities;
+package nl.lveekhout.fragmentactivities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -8,12 +8,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.activities.R;
-import com.example.data.GlobalAppData;
+import nl.lveekhout.data.GlobalAppData;
+import nl.lveekhout.fragmentactivities.R;
 
 public class ListActivity extends FragmentActivity {
 

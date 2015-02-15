@@ -1,9 +1,11 @@
-package com.example.activities;
+package nl.lveekhout.fragmentactivities;
 
 //import lveekhout.StrMods;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import nl.lveekhout.data.GlobalAppData;
+import nl.lveekhout.data.ListCoords;
+import nl.lveekhout.dialogs.ShowCoordDialog;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
@@ -13,10 +15,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
-import com.example.data.GlobalAppData;
-import com.example.data.ListCoords;
-import com.example.dialogs.ShowCoordDialog;
-import com.example.activities.R;
+import nl.lveekhout.fragmentactivities.R;
 
 public class GpsActivity extends FragmentActivity {
 

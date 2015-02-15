@@ -1,6 +1,6 @@
-package com.example.views;
+package nl.lveekhout.views;
 
-import com.example.application.SkiApplication;
+import nl.lveekhout.applications.SkiApplication;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;

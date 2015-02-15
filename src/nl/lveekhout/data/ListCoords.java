@@ -1,4 +1,4 @@
-package com.example.data;
+package nl.lveekhout.data;
 
 import java.util.Date;
 

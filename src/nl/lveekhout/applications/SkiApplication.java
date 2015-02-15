@@ -1,6 +1,6 @@
-package com.example.application;
+package nl.lveekhout.applications;
 
-import com.example.activities.R;
+import nl.lveekhout.fragmentactivities.R;
 import android.app.Application;
 import android.content.Context;
 import android.content.ContextWrapper;

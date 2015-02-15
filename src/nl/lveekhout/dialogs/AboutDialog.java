@@ -1,6 +1,6 @@
-package com.example.dialogs;
+package nl.lveekhout.dialogs;
 
-import com.example.activities.R;
+import nl.lveekhout.fragmentactivities.R;
 import android.os.Bundle;
 import android.app.Dialog;
 import android.app.AlertDialog;
