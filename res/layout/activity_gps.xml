@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:text="Latitude"
@@ -130,5 +130,11 @@
         android:onClick="showCoordMaxSpeed"
         android:text="Coördinaten"
         android:textColor="@color/Red" />
+
+    <nl.lveekhout.views.GpsCompasView
+        android:id="@+id/gps_compas_id"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

@@ -16,12 +16,14 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
 import nl.lveekhout.fragmentactivities.R;
+import nl.lveekhout.views.GpsCompasView;
 
 public class GpsActivity extends FragmentActivity {
 
     TextView textLat;
     TextView textLong;
     TextView textAlt;
+    GpsCompasView compasBearing;
     TextView textSpeed;
     TextView textMaxSpeed;
     
@@ -36,6 +38,7 @@ public class GpsActivity extends FragmentActivity {
         textLat = (TextView) findViewById(R.id.textLat);
         textLong = (TextView) findViewById(R.id.textLong);
         textAlt = (TextView) findViewById(R.id.textAlt);
+        compasBearing = (GpsCompasView) findViewById(R.id.gps_compas_id);
         textSpeed = (TextView) findViewById(R.id.textSpeed);
         textMaxSpeed = (TextView) findViewById(R.id.textMaxSpeed);
         displayData();
@@ -62,6 +65,7 @@ public class GpsActivity extends FragmentActivity {
     	textLat.setText(GlobalAppData.latitude);
     	textLong.setText(GlobalAppData.longitude);
     	textAlt.setText(GlobalAppData.altitude);
+    	compasBearing.setBearing(GlobalAppData.bearing);
     	textSpeed.setText(GlobalAppData.speed);
 
         if (GlobalAppData.maxSpeedDate==null) textMaxSpeed.setText(String.format("%.2f km/u", GlobalAppData.maxSpeed));
@@ -93,6 +97,7 @@ public class GpsActivity extends FragmentActivity {
             	GlobalAppData.latitude = Double.toString(location.getLatitude());
             	GlobalAppData.longitude = Double.toString(location.getLongitude());
             	GlobalAppData.altitude = Double.toString(location.getAltitude());
+            	if (location.hasBearing()) GlobalAppData.bearing = (float) (Math.PI/180)*location.getBearing();
             	GlobalAppData.speed = String.format("%.2f", f) + " km/u";
 
             	if (location.getSpeed()>0) {

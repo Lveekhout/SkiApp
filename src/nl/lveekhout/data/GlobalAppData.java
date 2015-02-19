@@ -13,6 +13,7 @@ public class GlobalAppData {
 	public static String latitude;
 	public static String longitude;
 	public static String altitude;
+	public static Float bearing;
 	public static String speed;
     public static float maxSpeed;
     public static Date maxSpeedDate;
@@ -27,6 +28,7 @@ public class GlobalAppData {
     	latitude = "----";
     	longitude = "----";
     	altitude = "----";
+    	bearing = null;
     	speed = "----";
         maxSpeed = 0.0f;
         maxSpeedDate = null;

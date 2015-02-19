@@ -17,7 +17,7 @@ import android.widget.Toast;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GestureDetectorCompat;
 
-public class MainActivity extends FragmentActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+public class MainActivity extends FragmentActivity implements GestureDetector.OnGestureListener {
 
 	private GestureDetectorCompat mDetector;
 
@@ -79,21 +79,6 @@ public class MainActivity extends FragmentActivity implements GestureDetector.On
 
     @Override
 	public boolean onDown(MotionEvent e) {
-		return false;
-	}
-
-	@Override
-	public boolean onDoubleTap(MotionEvent arg0) {
- 		return false;
-	}
-
-	@Override
-	public boolean onDoubleTapEvent(MotionEvent arg0) {
-		return false;
-	}
-
-	@Override
-	public boolean onSingleTapConfirmed(MotionEvent arg0) {
 		return false;
 	}
 
